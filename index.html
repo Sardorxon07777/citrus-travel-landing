@@ -90,6 +90,19 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   .feature img{display:block;border-radius:2px}
   .feature .taglist{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
   .tag{font-size:12px;font-weight:600;letter-spacing:.03em;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);color:var(--fg)}
+  .feature-rev>div:first-child{order:2}
+  .feature-rev>div:last-child{order:1}
+  .chinaimgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .chinaimgs img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4}
+
+  .whychoose{background:var(--surface)}
+  .whygrid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+  .whyitem{text-align:center}
+  .whyitem h3{font-size:16px;font-weight:600;margin-bottom:8px}
+  .whyitem p{font-size:13.5px;color:var(--muted)}
+
+  .statement{padding-block:80px;text-align:center}
+  .statement p{font-family:var(--font-display);font-size:clamp(22px,3.4vw,34px);line-height:1.3;color:var(--fg);max-width:20ch;margin-inline:auto}
 
   .videos{background:var(--surface)}
   .videogrid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -119,7 +132,10 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
 
   @media (max-width:760px){
     .navlinks{display:none}
-    .ambgrid,.feature,.contact,.videogrid{grid-template-columns:1fr}
+    .ambgrid,.feature,.contact,.videogrid,.whygrid{grid-template-columns:1fr}
+    .feature-rev>div:first-child{order:1}
+    .feature-rev>div:last-child{order:2}
+    .whygrid{gap:20px}
     .ambgrid img{max-width:220px;margin:0 auto}
     section{padding-block:56px}
     .hero{min-height:94vh}
@@ -164,7 +180,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   <div class="wrap">
     <section>
       <div class="ambgrid">
-        <img src="assets/jahongir.jpg" alt="Jahongir Xo'jayev">
+        <img src="assets/jahongir-suitcase.jpg" alt="Jahongir Xo'jayev" style="aspect-ratio:9/10;object-fit:cover;object-position:top">
         <div>
           <span class="eyebrow" style="color:var(--accent-dark)">Jamoamizda</span>
           <h2>Jahongir Xo'jayev</h2>
@@ -219,6 +235,67 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
       </div>
     </div>
   </section>
+</div>
+
+<div class="wrap">
+  <section>
+    <div class="feature feature-rev">
+      <div class="chinaimgs">
+        <img src="assets/china-greatwall-1.jpg" alt="Citrus Travel - Xitoy turi, Buyuk Xitoy devori">
+        <img src="assets/china-greatwall-2.jpg" alt="Citrus Travel - Xitoy turi sayohatchilari">
+      </div>
+      <div>
+        <span class="eyebrow" style="color:var(--accent-dark)">Eng ko'p so'raladigan yo'nalish</span>
+        <h2>Xitoy turlari</h2>
+        <p class="sub" style="margin-top:16px;color:var(--muted);font-size:16.5px">Buyuk Xitoy devoridan tortib Janszyatszedagi "Avatar" tog'lari va Haynan oroligacha — Xitoyning eng ko'rkam joylarini guruh bilan birga kashf eting. Barcha tashkiliy ishlarni Citrus Travel o'z zimmasiga oladi.</p>
+        <div class="taglist">
+          <span class="tag">Buyuk Xitoy devori</span>
+          <span class="tag">Avatar tog'lari</span>
+          <span class="tag">Haynan oroli</span>
+          <span class="tag">520$ dan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="whychoose">
+  <div class="wrap">
+    <section>
+      <div class="section-head center">
+        <span class="kicker">Nega aynan biz</span>
+        <h2>Citrus Travel bilan sayohat — bu ishonch</h2>
+      </div>
+      <div class="whygrid">
+        <div class="whyitem">
+          <h3>Qulay paketlar</h3>
+          <p>Sizning byudjetingizga mos, ortiqcha to'lovlarsiz qulay paketlar.</p>
+        </div>
+        <div class="whyitem">
+          <h3>Doim aloqada</h3>
+          <p>Sayohat davomida 24/7 aloqada bo'ladigan professional guruh.</p>
+        </div>
+        <div class="whyitem">
+          <h3>Viza bo'yicha yordam</h3>
+          <p>Viza hujjatlarini tayyorlashda to'liq va ishonchli yordam.</p>
+        </div>
+        <div class="whyitem">
+          <h3>Rasmiy kafolat</h3>
+          <p>Rasmiy kafolat, sug'urta va tasdiqlangan hamkorlar tarmog'i.</p>
+        </div>
+        <div class="whyitem">
+          <h3>Ishonch qozongan</h3>
+          <p>Minglab mamnun sayohatchilar ishonchini qozongan xizmat.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="statement">
+  <div class="wrap">
+    <p>Dunyo siz kutgandan ham yaqinroq.<br>Citrus Travel bilan yangi taassurotlarni kashf eting!</p>
+  </div>
 </div>
 
 <div class="videos" id="otziv">
