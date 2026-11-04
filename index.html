@@ -27,107 +27,102 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
 
 <style>
   :root{
-    --bg:#FAF6EF; --surface:#FFFFFF; --fg:#1A2233; --muted:#5B6578;
-    --primary:#19508F; --primary-dark:#0F3763; --accent:#F2930B; --accent-dark:#D97A00;
-    --border:#EAE1CF;
+    --bg:#FFFFFF; --surface:#FAF8F3; --fg:#1A1A1A; --muted:#6B6B63;
+    --primary:#19508F; --accent:#F2930B; --accent-dark:#D97A00;
+    --border:#E9E5DA;
     --font-display:'Fraunces',Georgia,serif;
     --font-body:'IBM Plex Sans',-apple-system,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{background:var(--bg);color:var(--fg);font-family:var(--font-body);line-height:1.6;-webkit-font-smoothing:antialiased}
   img,video{max-width:100%}
-  .wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-  h1,h2,h3{font-family:var(--font-display);font-weight:600;margin:0;text-wrap:balance}
+  .wrap{max-width:1140px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+  h1,h2,h3{font-family:var(--font-display);font-weight:500;margin:0;text-wrap:balance}
   p{margin:0}
   a{color:inherit}
 
-  .topbar{padding-block:12px;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+  .topbar{position:absolute;top:0;left:0;right:0;padding-block:24px;z-index:20}
+  .topbar.solid{position:sticky;background:var(--bg);border-bottom:1px solid var(--border)}
   .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
-  .brand img{height:38px;display:block}
-  .navlinks{display:flex;gap:22px;font-size:14px;font-weight:600;color:var(--primary-dark)}
+  .brand img{height:34px;display:block}
+  .navlinks{display:flex;gap:30px;font-size:13.5px;font-weight:600;letter-spacing:.02em;color:#fff}
   .navlinks a{text-decoration:none}
-  .topcta{font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;background:var(--primary);color:#fff;text-decoration:none;white-space:nowrap}
+  .topcta{font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:2px;background:#fff;color:var(--fg);text-decoration:none;white-space:nowrap;letter-spacing:.02em}
 
-  .hero{padding-block:48px 44px}
-  .herogrid{display:grid;grid-template-columns:1.2fr .8fr;gap:44px;align-items:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--primary);background:rgba(25,80,143,.08);padding:7px 14px;border-radius:999px;margin-bottom:18px}
-  .hero h1{font-size:clamp(28px,4.2vw,44px);line-height:1.12;color:var(--primary-dark)}
-  .hero .sub{margin-top:16px;font-size:16.5px;color:var(--muted);max-width:52ch}
-  .hero .ctarow{margin-top:26px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+  .hero .bgimg{position:absolute;inset:0;background:url('assets/group-photo.jpg') center 30%/cover}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,15,20,.92) 0%,rgba(10,15,20,.45) 55%,rgba(10,15,20,.15) 100%)}
+  .hero .content{position:relative;z-index:2;padding-bottom:64px;width:100%}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:20px;opacity:.85}
+  .hero h1{font-size:clamp(34px,6vw,64px);line-height:1.04;max-width:16ch;font-weight:500}
+  .hero .sub{margin-top:20px;font-size:17px;color:rgba(255,255,255,.85);max-width:56ch}
+  .hero .ctarow{margin-top:32px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
   .btn-primary{
     display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;
-    font-weight:700;font-size:16px;padding:15px 25px;border-radius:12px;text-decoration:none;
-    transition:transform .15s ease, background .15s ease;
+    font-weight:700;font-size:14.5px;letter-spacing:.02em;padding:16px 28px;border-radius:2px;text-decoration:none;
+    transition:background .15s ease;
   }
-  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
-  .btn-ghost{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;color:var(--primary-dark);text-decoration:none;border-bottom:1px solid var(--primary-dark);padding-bottom:2px}
-  .herologo{display:flex;align-items:center;justify-content:center}
-  .herologo img{width:100%;max-width:260px}
+  .btn-primary:hover{background:var(--accent-dark)}
+  .btn-outline{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.5);padding:15px 24px;border-radius:2px}
 
-  section{padding-block:48px}
-  .section-head{max-width:54ch;margin-bottom:28px}
-  .section-head .kicker{font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:10px;display:block}
-  .section-head h2{font-size:clamp(21px,3vw,30px);color:var(--primary-dark)}
+  section{padding-block:88px}
+  .section-head{max-width:60ch;margin-bottom:48px}
+  .section-head .kicker{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-dark);margin-bottom:14px;display:block}
+  .section-head h2{font-size:clamp(26px,4vw,40px);color:var(--fg)}
+  .center{text-align:center;margin-inline:auto}
 
-  .dests{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .pricegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-  .pricecard{display:flex;align-items:center;gap:12px;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
-  .pricecard .flag{font-size:26px;line-height:1}
-  .pricecard b{display:block;font-size:14px;color:var(--primary-dark)}
-  .pricecard span{font-size:13px;color:var(--muted)}
-  .card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px}
-  .card .icon{width:40px;height:40px;border-radius:10px;background:var(--primary);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-  .card h3{font-size:17.5px;color:var(--primary-dark);margin-bottom:8px}
-  .card p{font-size:14px;color:var(--muted)}
+  .ambassador{background:var(--surface)}
+  .ambgrid{display:grid;grid-template-columns:.42fr 1fr;gap:56px;align-items:center}
+  .ambgrid img{width:100%;display:block;border-radius:2px}
+  .ambgrid h2{font-size:clamp(26px,3.6vw,38px)}
+  .ambgrid .sub{margin-top:18px;font-size:16.5px;color:var(--muted);max-width:50ch}
 
-  .feature{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
-  .feature img{border-radius:18px;border:1px solid var(--border);display:block}
-  .feature .taglist{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-  .tag{font-size:12.5px;font-weight:600;padding:6px 12px;border-radius:999px;background:rgba(25,80,143,.08);color:var(--primary-dark)}
+  .pricelist{border-top:1px solid var(--border)}
+  .pricerow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-block:22px;border-bottom:1px solid var(--border)}
+  .pricerow .dest{display:flex;align-items:baseline;gap:14px;font-family:var(--font-display);font-size:22px}
+  .pricerow .flag{font-size:20px}
+  .pricerow .price{font-size:14.5px;color:var(--muted);letter-spacing:.02em;white-space:nowrap}
+  .pricenote{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .notechip{font-size:13.5px;color:var(--muted);background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:9px 16px}
 
-  .videos{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .videogrid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .videocard{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:14px}
-  .videocard video{width:100%;border-radius:12px;display:block;background:#000;aspect-ratio:9/16;max-height:480px;object-fit:cover}
-  .videocard h3{font-size:15px;color:var(--primary-dark);margin-top:12px}
-  .videocard p{font-size:13px;color:var(--muted);margin-top:3px}
+  .feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .feature img{display:block;border-radius:2px}
+  .feature .taglist{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .tag{font-size:12px;font-weight:600;letter-spacing:.03em;padding:7px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--border);color:var(--fg)}
 
-  .contact{display:grid;grid-template-columns:1fr 1fr;gap:36px}
-  .contactlist{display:grid;gap:10px}
-  .contactrow{display:flex;justify-content:space-between;gap:12px;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 16px;font-size:14.5px}
-  .contactrow b{color:var(--primary-dark);font-weight:600}
-  .contactrow span{color:var(--muted)}
-  .socialrow{display:flex;gap:12px;margin-top:18px}
-  .socialbtn{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;border:1px solid var(--border);text-decoration:none;color:var(--primary-dark)}
+  .videos{background:var(--surface)}
+  .videogrid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .videocard video{width:100%;border-radius:2px;display:block;background:#000;aspect-ratio:9/16;max-height:520px;object-fit:cover}
+  .videocard h3{font-size:16px;margin-top:16px;font-weight:600;font-family:var(--font-body)}
+  .videocard p{font-size:13.5px;color:var(--muted);margin-top:4px}
 
-  .closing{background:var(--primary);color:#fff;border-radius:24px;margin-inline:max(20px,env(safe-area-inset-left,0px)) max(20px,env(safe-area-inset-right,0px));padding:44px 28px;text-align:center}
-  .closing .eyebrow{background:rgba(255,255,255,.14);color:#fff}
-  .closing h2{color:#fff;font-size:clamp(22px,3.4vw,32px);max-width:28ch;margin-inline:auto}
-  .closing p{color:rgba(255,255,255,.78);margin-top:12px;max-width:44ch;margin-inline:auto}
-  .closing .btn-primary{margin-top:26px}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  .contactlist{display:grid;gap:0;border-top:1px solid var(--border)}
+  .contactrow{display:flex;justify-content:space-between;gap:12px;padding-block:16px;border-bottom:1px solid var(--border);font-size:15px}
+  .contactrow b{font-weight:600}
+  .contactrow span{color:var(--muted);font-variant-numeric:tabular-nums}
+  .socialrow{display:flex;gap:14px;margin-top:24px}
+  .socialbtn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;padding:11px 18px;border-radius:2px;border:1px solid var(--fg);text-decoration:none;color:var(--fg)}
 
-  footer{padding-block:28px;border-top:1px solid var(--border)}
+  .closing{position:relative;color:#fff;padding-block:100px;text-align:center;overflow:hidden}
+  .closing .bgimg{position:absolute;inset:0;background:url('assets/destination-still.jpg') center/cover}
+  .closing::before{content:"";position:absolute;inset:0;background:rgba(10,15,20,.68)}
+  .closing .inner{position:relative;z-index:2}
+  .closing .eyebrow{color:#fff}
+  .closing h2{color:#fff;font-size:clamp(28px,4.4vw,46px);max-width:24ch;margin-inline:auto}
+  .closing p{color:rgba(255,255,255,.8);margin-top:16px;max-width:44ch;margin-inline:auto;font-size:16px}
+  .closing .btn-primary{margin-top:32px}
+
+  footer{padding-block:32px;border-top:1px solid var(--border)}
   footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
 
   @media (max-width:760px){
     .navlinks{display:none}
-    .herogrid, .feature, .contact, .videogrid{grid-template-columns:1fr}
-    .herologo{order:-1;max-width:160px;margin:0 auto 10px}
-    .grid3{grid-template-columns:1fr}
-    .pricegrid{grid-template-columns:repeat(2,1fr)}
-    .feature img{order:-1}
-  }
-
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --bg:#17120A; --surface:#1F1710; --fg:#F3ECDD; --muted:#B9AC93;
-      --primary:#6FA6E8; --primary-dark:#BBD8FA; --accent:#FFB13D; --accent-dark:#FFC467;
-      --border:#352A1A; color-scheme: dark;
-    }
-    :root:not([data-theme="light"]) .topcta{color:#1A1104}
-    :root:not([data-theme="light"]) .btn-primary{color:#1A1104}
+    .ambgrid,.feature,.contact,.videogrid{grid-template-columns:1fr}
+    .ambgrid img{max-width:220px;margin:0 auto}
+    section{padding-block:56px}
+    .hero{min-height:94vh}
   }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -138,7 +133,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
 
 <div class="topbar">
   <div class="wrap">
-    <div class="brand"><img src="assets/logo.png" alt="Citrus Travel"></div>
+    <div class="brand"><img src="assets/logo-white.png" alt="Citrus Travel"></div>
     <div class="navlinks">
       <a href="#yonalishlar">Yo'nalishlar</a>
       <a href="#otziv">Otzivlar</a>
@@ -148,78 +143,63 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   </div>
 </div>
 
-<div class="hero wrap">
-  <div class="herogrid">
-    <div>
-      <span class="eyebrow">Har kuni qaynoq turlar</span>
-      <h1>Siz bilan sayohat qilish oson, tez va kam xarajatli</h1>
-      <p class="sub">Citrus Travel — Xitoy turlari, halol premium kruiz va avtorskiy (muallif) marshrutlar. Singapur, Indoneziya, Malayziya bo'ylab o'zimiz ishlab chiqqan noyob turni ham tashkil qildik.</p>
-      <div class="ctarow">
-        <a class="btn-primary" href="#" id="herocta">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.5 12l6 2.2m13-9.7-3 16-7-5m10-11-10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          Telegram kanalga qo'shilish
-        </a>
-        <a class="btn-ghost" href="#contact">Bog'lanish uchun raqamlar</a>
-      </div>
+<div class="hero">
+  <div class="bgimg"></div>
+  <div class="scrim"></div>
+  <div class="content wrap">
+    <span class="eyebrow">Har kuni qaynoq turlar</span>
+    <h1>Siz bilan sayohat qilish oson, tez va kam xarajatli</h1>
+    <p class="sub">Xitoy turlari, halol premium kruiz va avtorskiy marshrutlar. Singapur, Indoneziya, Malayziya bo'ylab o'zimiz ishlab chiqqan noyob turni ham tashkil qildik.</p>
+    <div class="ctarow">
+      <a class="btn-primary" href="#" id="herocta">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.5 12l6 2.2m13-9.7-3 16-7-5m10-11-10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        TELEGRAM KANALGA QO'SHILISH
+      </a>
+      <a class="btn-outline" href="#contact">BOG'LANISH</a>
     </div>
-    <div class="herologo"><img src="assets/logo.png" alt="Citrus Travel"></div>
   </div>
 </div>
 
-<div class="dests">
+<div class="ambassador">
   <div class="wrap">
-    <section style="padding-block:40px">
-      <div class="feature">
-        <img src="assets/jahongir.jpg" alt="Jahongir Xo'jayev" style="max-width:260px;justify-self:center">
+    <section>
+      <div class="ambgrid">
+        <img src="assets/jahongir.jpg" alt="Jahongir Xo'jayev">
         <div>
-          <span class="eyebrow">Jamoamizda</span>
+          <span class="eyebrow" style="color:var(--accent-dark)">Jamoamizda</span>
           <h2>Jahongir Xo'jayev</h2>
-          <p class="sub" style="margin-top:12px">Ko'pchilikka tanish, ishonchli bloger Jahongir Xo'jayev Citrus Travel jamoasi bilan birga sayohat qiladi va turlarimiz haqida o'z tajribasini ochiq ulashadi.</p>
+          <p class="sub">Ko'pchilikka tanish, ishonchli bloger Jahongir Xo'jayev Citrus Travel jamoasi bilan birga sayohat qiladi va turlarimiz haqida o'z tajribasini ochiq ulashadi.</p>
         </div>
       </div>
     </section>
   </div>
 </div>
 
-<div class="dests" id="yonalishlar">
-  <div class="wrap">
-    <section style="padding-block:48px">
-      <div class="section-head">
-        <span class="kicker">Yo'nalishlar va narxlar</span>
-        <h2>Qayerga boramiz</h2>
-      </div>
-      <div class="pricegrid">
-        <div class="pricecard"><span class="flag">🇦🇪</span><div><b>Dubay</b><span>460$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇦🇿</span><div><b>Boku</b><span>500$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇪🇬</span><div><b>Sharm El-Sheyx</b><span>610$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇶🇦</span><div><b>Qatar</b><span>630$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇨🇳</span><div><b>Xitoy</b><span>520$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇱🇰</span><div><b>Shri-Lanka</b><span>590$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇹🇷</span><div><b>Turkiya</b><span>650$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇻🇳</span><div><b>Fukuok</b><span>500$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇬🇪</span><div><b>Tbilisi</b><span>570$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇲🇾</span><div><b>Kuala-Lumpur</b><span>680$ dan</span></div></div>
-        <div class="pricecard"><span class="flag">🇲🇻</span><div><b>Maldiv</b><span>680$ dan</span></div></div>
-      </div>
-      <div class="grid3" style="margin-top:18px">
-        <div class="card">
-          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v6m0 0 4-4m-4 4L8 4M5 14a7 7 0 1 0 14 0 7 7 0 0 0-14 0Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Xitoy: Avatar tog'lari va Haynan</h3>
-          <p>Xitoy yo'nalishida Janszyatszedagi "Avatar" tog'lari va Haynan oroli bo'yicha alohida turlar ham mavjud.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 18c2-2 4-2 6 0s4 2 6 0 4-2 6 0M12 3v11m0 0-4-4m4 4 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Halol premium kruiz</h3>
-          <p>Shariat qoidalariga mos, yuqori darajadagi xizmat ko'rsatiladigan dengiz sayohatlari.</p>
-        </div>
-        <div class="card">
-          <div class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.5 12l6 2.2m13-9.7-3 16-7-5m10-11-10 9" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <h3>Avtorskiy turlar</h3>
-          <p>Citrus Travel jamoasi tomonidan maxsus ishlab chiqilgan, boshqa hech yerda yo'q noyob marshrutlar.</p>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="wrap" id="yonalishlar">
+  <section>
+    <div class="section-head">
+      <span class="kicker">Yo'nalishlar va narxlar</span>
+      <h2>Qayerga boramiz</h2>
+    </div>
+    <div class="pricelist">
+      <div class="pricerow"><span class="dest"><span class="flag">🇦🇪</span>Dubay</span><span class="price">460$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇦🇿</span>Boku</span><span class="price">500$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇪🇬</span>Sharm El-Sheyx</span><span class="price">610$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇶🇦</span>Qatar</span><span class="price">630$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇨🇳</span>Xitoy</span><span class="price">520$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇱🇰</span>Shri-Lanka</span><span class="price">590$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇹🇷</span>Turkiya</span><span class="price">650$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇻🇳</span>Fukuok</span><span class="price">500$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇬🇪</span>Tbilisi</span><span class="price">570$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇲🇾</span>Kuala-Lumpur</span><span class="price">680$ dan</span></div>
+      <div class="pricerow"><span class="dest"><span class="flag">🇲🇻</span>Maldiv</span><span class="price">680$ dan</span></div>
+    </div>
+    <div class="pricenote">
+      <span class="notechip">🇨🇳 Xitoy: Avatar tog'lari (Janszyatsze) va Haynan oroli bo'yicha alohida turlar ham bor</span>
+      <span class="notechip">🕌 Halol premium kruiz — shariatga mos xizmat</span>
+      <span class="notechip">✨ Avtorskiy (muallif) marshrutlar</span>
+    </div>
+  </section>
 </div>
 
 <div class="wrap">
@@ -227,9 +207,9 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
     <div class="feature">
       <img src="assets/group-photo.jpg" alt="Citrus Travel - Singapur avtorskiy tur guruhi">
       <div>
-        <span class="eyebrow">Avtorskiy tur</span>
+        <span class="eyebrow" style="color:var(--accent-dark)">Avtorskiy tur</span>
         <h2>Singapur · Indoneziya · Malayziya</h2>
-        <p class="sub" style="margin-top:14px">O'zimiz ishlab chiqqan, uch mamlakatni bir yo'nalishda birlashtirgan maxsus marshrut. Guruhimiz Marina Bay va Jewel Changi kabi mashhur joylarni ziyorat qildi — barcha tashkiliy ishlarni Citrus Travel o'z zimmasiga oldi.</p>
+        <p class="sub" style="margin-top:16px;color:var(--muted);font-size:16.5px">O'zimiz ishlab chiqqan, uch mamlakatni bir yo'nalishda birlashtirgan maxsus marshrut. Guruhimiz Marina Bay va Jewel Changi kabi mashhur joylarni ziyorat qildi — barcha tashkiliy ishlarni Citrus Travel o'z zimmasiga oldi.</p>
         <div class="taglist">
           <span class="tag">Singapur</span>
           <span class="tag">Indoneziya</span>
@@ -243,7 +223,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
 
 <div class="videos" id="otziv">
   <div class="wrap">
-    <section style="padding-block:48px">
+    <section>
       <div class="section-head">
         <span class="kicker">Tur lavhalari va mijoz fikrlari</span>
         <h2>O'zingiz ko'ring va eshiting</h2>
@@ -268,8 +248,8 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   <section>
     <div class="contact">
       <div>
-        <span class="eyebrow">Bog'lanish</span>
-        <h2>Savolingiz bormi? Bizga yozing yoki qo'ng'iroq qiling</h2>
+        <span class="eyebrow" style="color:var(--accent-dark)">Bog'lanish</span>
+        <h2>Savolingiz bormi?<br>Bizga yozing yoki qo'ng'iroq qiling</h2>
         <div class="socialrow">
           <a class="socialbtn" href="https://www.instagram.com/citrustraveluz" target="_blank" rel="noopener">Instagram</a>
           <a class="socialbtn" href="#" id="contactcta">Telegram</a>
@@ -285,18 +265,19 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
       </div>
     </div>
   </section>
+</div>
 
-  <section style="padding-top:0">
-    <div class="closing">
-      <span class="eyebrow">Citrus Travel</span>
-      <h2>Yangi turlardan birinchi bo'lib xabardor bo'ling</h2>
-      <p>Xitoy turlari, halol premium kruiz va avtorskiy marshrutlar haqida barcha yangiliklar Telegram kanalimizda.</p>
-      <a class="btn-primary" href="#" id="closingcta">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.5 12l6 2.2m13-9.7-3 16-7-5m10-11-10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Telegram kanalga qo'shilish
-      </a>
-    </div>
-  </section>
+<div class="closing">
+  <div class="bgimg"></div>
+  <div class="inner wrap">
+    <span class="eyebrow">Citrus Travel</span>
+    <h2>Yangi turlardan birinchi bo'lib xabardor bo'ling</h2>
+    <p>Xitoy turlari, halol premium kruiz va avtorskiy marshrutlar haqida barcha yangiliklar Telegram kanalimizda.</p>
+    <a class="btn-primary" href="#" id="closingcta">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.5 12l6 2.2m13-9.7-3 16-7-5m10-11-10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      TELEGRAM KANALGA QO'SHILISH
+    </a>
+  </div>
 </div>
 
 <footer>
@@ -316,6 +297,10 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   ["topcta","herocta","closingcta","contactcta"].forEach(function(id){
     var el = document.getElementById(id);
     if (el) el.addEventListener("click", goToTelegram);
+  });
+
+  window.addEventListener("scroll", function(){
+    document.querySelector(".topbar").classList.toggle("solid", window.scrollY > 80);
   });
 </script>
 </body>
