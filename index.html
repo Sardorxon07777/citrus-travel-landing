@@ -105,7 +105,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   .statement p{font-family:var(--font-display);font-size:clamp(22px,3.4vw,34px);line-height:1.3;color:var(--fg);max-width:20ch;margin-inline:auto}
 
   .videos{background:var(--surface)}
-  .videogrid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .videogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   .videocard video{width:100%;border-radius:2px;display:block;background:#000;aspect-ratio:9/16;max-height:520px;object-fit:cover}
   .videocard h3{font-size:16px;margin-top:16px;font-weight:600;font-family:var(--font-body)}
   .videocard p{font-size:13.5px;color:var(--muted);margin-top:4px}
@@ -127,17 +127,37 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   .closing p{color:rgba(255,255,255,.8);margin-top:16px;max-width:44ch;margin-inline:auto;font-size:16px}
   .closing .btn-primary{margin-top:32px}
 
+  .bgsection{position:relative;color:#fff;overflow:hidden;padding-block:100px}
+  .bgsection .bgimg{position:absolute;inset:0;background-size:cover;background-position:center}
+  .bgsection::before{content:"";position:absolute;inset:0;background:rgba(10,15,20,var(--scrim,.62))}
+  .bgsection .inner{position:relative;z-index:2}
+  .bgsection .eyebrow{color:#fff}
+  .bgsection h2{color:#fff}
+  .bgsection .sub,.bgsection p{color:rgba(255,255,255,.85)}
+  .bgsection .tag{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}
+  .bgsection.feature .taglist{margin-top:20px}
+  .bgsection.feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .bgsection .whygrid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;margin-top:8px}
+  .bgsection .whyitem{text-align:center}
+  .bgsection .whyitem h3{font-size:16px;font-weight:600;margin-bottom:8px;color:#fff}
+  .bgsection .whyitem p{font-size:13.5px;color:rgba(255,255,255,.78)}
+  .bgsection .statement-quote{font-family:var(--font-display);font-size:clamp(22px,3.4vw,32px);line-height:1.32;max-width:26ch;margin-inline:auto;text-align:center;color:#fff;background:rgba(8,10,14,.55);backdrop-filter:blur(2px);padding:40px 32px;border-radius:4px}
+  .bgsection .statement-cite{display:block;margin-top:22px;font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.75)}
+
   footer{padding-block:32px;border-top:1px solid var(--border)}
   footer .wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
 
   @media (max-width:760px){
     .navlinks{display:none}
     .ambgrid,.feature,.contact,.videogrid,.whygrid{grid-template-columns:1fr}
+    .bgsection .feature{grid-template-columns:1fr}
+    .bgsection .whygrid{grid-template-columns:1fr 1fr}
     .feature-rev>div:first-child{order:1}
     .feature-rev>div:last-child{order:2}
     .whygrid{gap:20px}
     .ambgrid img{max-width:220px;margin:0 auto}
     section{padding-block:56px}
+    .bgsection{padding-block:64px}
     .hero{min-height:94vh}
   }
 </style>
@@ -164,8 +184,8 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   <div class="scrim"></div>
   <div class="content wrap">
     <span class="eyebrow">Har kuni qaynoq turlar</span>
-    <h1>Siz bilan sayohat qilish oson, tez va kam xarajatli</h1>
-    <p class="sub">Xitoy turlari, halol premium kruiz va avtorskiy marshrutlar. Singapur, Indoneziya, Malayziya bo'ylab o'zimiz ishlab chiqqan noyob turni ham tashkil qildik.</p>
+    <h1>Dunyo siz kutgandan ham yaqinroq</h1>
+    <p class="sub">Citrus Travel bilan yangi taassurotlarni kashf eting — Xitoy turlari, halol premium kruiz va avtorskiy marshrutlar, barchasi bitta joyda, oson va kam xarajatli.</p>
     <div class="ctarow">
       <a class="btn-primary" href="#" id="herocta">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.5 12l6 2.2m13-9.7-3 16-7-5m10-11-10 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -180,11 +200,11 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   <div class="wrap">
     <section>
       <div class="ambgrid">
-        <img src="assets/jahongir-suitcase.jpg" alt="Jahongir Xo'jayev" style="aspect-ratio:9/10;object-fit:cover;object-position:top">
+        <img src="assets/jahongir.jpg" alt="Jahongir Xo'jayev" style="aspect-ratio:9/10;object-fit:cover;object-position:top">
         <div>
-          <span class="eyebrow" style="color:var(--accent-dark)">Jamoamizda</span>
-          <h2>Jahongir Xo'jayev</h2>
-          <p class="sub">Ko'pchilikka tanish, ishonchli bloger Jahongir Xo'jayev Citrus Travel jamoasi bilan birga sayohat qiladi va turlarimiz haqida o'z tajribasini ochiq ulashadi.</p>
+          <span class="eyebrow" style="color:var(--accent-dark)">Asoschidan</span>
+          <h2>Men — Jahongir Xo'jayev</h2>
+          <p class="sub">Bu — mening tur kompaniyam. Citrus Travel'ni men shaxsan tashkil qildim va har bir sayohatni o'zim nazorat qilaman — Xitoy turlaridan tortib avtorskiy marshrutlargacha. Sizlarga faqat o'zim ishongan yo'nalishlarni taklif qilaman.</p>
         </div>
       </div>
     </section>
@@ -237,64 +257,61 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   </section>
 </div>
 
-<div class="wrap">
-  <section>
-    <div class="feature feature-rev">
-      <div class="chinaimgs">
-        <img src="assets/china-greatwall-1.jpg" alt="Citrus Travel - Xitoy turi, Buyuk Xitoy devori">
-        <img src="assets/china-greatwall-2.jpg" alt="Citrus Travel - Xitoy turi sayohatchilari">
-      </div>
-      <div>
-        <span class="eyebrow" style="color:var(--accent-dark)">Eng ko'p so'raladigan yo'nalish</span>
-        <h2>Xitoy turlari</h2>
-        <p class="sub" style="margin-top:16px;color:var(--muted);font-size:16.5px">Buyuk Xitoy devoridan tortib Janszyatszedagi "Avatar" tog'lari va Haynan oroligacha — Xitoyning eng ko'rkam joylarini guruh bilan birga kashf eting. Barcha tashkiliy ishlarni Citrus Travel o'z zimmasiga oladi.</p>
-        <div class="taglist">
-          <span class="tag">Buyuk Xitoy devori</span>
-          <span class="tag">Avatar tog'lari</span>
-          <span class="tag">Haynan oroli</span>
-          <span class="tag">520$ dan</span>
-        </div>
-      </div>
+<div class="bgsection">
+  <div class="bgimg" style="background-image:url('assets/china-greatwall-1.jpg')"></div>
+  <div class="wrap inner">
+    <div class="section-head center" style="margin-bottom:28px">
+      <span class="eyebrow">Eng ko'p so'raladigan yo'nalish</span>
+      <h2>Xitoy turlari</h2>
+      <p class="sub" style="margin-top:16px;font-size:16.5px;max-width:52ch;margin-inline:auto">Buyuk Xitoy devoridan tortib Janszyatszedagi "Avatar" tog'lari va Haynan oroligacha — Xitoyning eng ko'rkam joylarini guruh bilan birga kashf eting. Barcha tashkiliy ishlarni Citrus Travel o'z zimmasiga oladi.</p>
     </div>
-  </section>
-</div>
-
-<div class="whychoose">
-  <div class="wrap">
-    <section>
-      <div class="section-head center">
-        <span class="kicker">Nega aynan biz</span>
-        <h2>Citrus Travel bilan sayohat — bu ishonch</h2>
-      </div>
-      <div class="whygrid">
-        <div class="whyitem">
-          <h3>Qulay paketlar</h3>
-          <p>Sizning byudjetingizga mos, ortiqcha to'lovlarsiz qulay paketlar.</p>
-        </div>
-        <div class="whyitem">
-          <h3>Doim aloqada</h3>
-          <p>Sayohat davomida 24/7 aloqada bo'ladigan professional guruh.</p>
-        </div>
-        <div class="whyitem">
-          <h3>Viza bo'yicha yordam</h3>
-          <p>Viza hujjatlarini tayyorlashda to'liq va ishonchli yordam.</p>
-        </div>
-        <div class="whyitem">
-          <h3>Rasmiy kafolat</h3>
-          <p>Rasmiy kafolat, sug'urta va tasdiqlangan hamkorlar tarmog'i.</p>
-        </div>
-        <div class="whyitem">
-          <h3>Ishonch qozongan</h3>
-          <p>Minglab mamnun sayohatchilar ishonchini qozongan xizmat.</p>
-        </div>
-      </div>
-    </section>
+    <div class="taglist" style="justify-content:center">
+      <span class="tag">Buyuk Xitoy devori</span>
+      <span class="tag">Avatar tog'lari</span>
+      <span class="tag">Haynan oroli</span>
+      <span class="tag">520$ dan</span>
+    </div>
   </div>
 </div>
 
-<div class="statement">
-  <div class="wrap">
-    <p>Dunyo siz kutgandan ham yaqinroq.<br>Citrus Travel bilan yangi taassurotlarni kashf eting!</p>
+<div class="bgsection">
+  <div class="bgimg" style="background-image:url('assets/china-greatwall-2.jpg')"></div>
+  <div class="wrap inner">
+    <div class="section-head center">
+      <span class="eyebrow">Nega aynan biz</span>
+      <h2>Citrus Travel bilan sayohat — bu ishonch</h2>
+    </div>
+    <div class="whygrid">
+      <div class="whyitem">
+        <h3>Qulay paketlar</h3>
+        <p>Sizning byudjetingizga mos, ortiqcha to'lovlarsiz qulay paketlar.</p>
+      </div>
+      <div class="whyitem">
+        <h3>Doim aloqada</h3>
+        <p>Sayohat davomida 24/7 aloqada bo'ladigan professional guruh.</p>
+      </div>
+      <div class="whyitem">
+        <h3>Viza bo'yicha yordam</h3>
+        <p>Viza hujjatlarini tayyorlashda to'liq va ishonchli yordam.</p>
+      </div>
+      <div class="whyitem">
+        <h3>Rasmiy kafolat</h3>
+        <p>Rasmiy kafolat, sug'urta va tasdiqlangan hamkorlar tarmog'i.</p>
+      </div>
+      <div class="whyitem">
+        <h3>Ishonch qozongan</h3>
+        <p>Minglab mamnun sayohatchilar ishonchini qozongan xizmat.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bgsection" style="--scrim:.78">
+  <div class="bgimg" style="background-image:url('assets/jahongir-suitcase.jpg');background-position:center 20%"></div>
+  <div class="wrap inner">
+    <p class="statement-quote">"Sayohat — bu hayotning eng yaxshi investitsiyasi. Men har bir mijozimga xuddi o'z oilamga tashkil qilayotgandek yondashaman."
+      <span class="statement-cite">— Jahongir Xo'jayev, Citrus Travel asoschisi</span>
+    </p>
   </div>
 </div>
 
@@ -315,6 +332,26 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
           <video controls playsinline preload="metadata" src="assets/testimonial.mp4"></video>
           <h3>Mijozimiz fikri</h3>
           <p>Tur ishtirokchisining o'z so'zlari bilan taassuroti</p>
+        </div>
+        <div class="videocard">
+          <video controls playsinline preload="metadata" src="assets/video-singapur2.mp4"></video>
+          <h3>Marina Bay Sands'da</h3>
+          <p>Singapur guruh sayohatidan yana bir lavha</p>
+        </div>
+        <div class="videocard">
+          <video controls playsinline preload="metadata" src="assets/video-singapur3.mp4"></video>
+          <h3>Kechki Singapur</h3>
+          <p>Tungi shahar manzarasi va kayfiyat</p>
+        </div>
+        <div class="videocard">
+          <video controls playsinline preload="metadata" src="assets/video-bagaj.mp4"></video>
+          <h3>Sayohatga tayyorgarlik</h3>
+          <p>Yo'lga chiqishdan oldingi lavha</p>
+        </div>
+        <div class="videocard">
+          <video controls playsinline preload="metadata" src="assets/video-indoneziya.mp4"></video>
+          <h3>Indoneziyadan taassurot</h3>
+          <p>Mijozimizning orol sayohatidagi fikri</p>
         </div>
       </div>
     </section>
