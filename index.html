@@ -130,7 +130,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
 
   .bgsection{position:relative;color:#fff;overflow:hidden;padding-block:100px}
   .bgsection .bgimg{position:absolute;inset:0;background-size:cover;background-position:center}
-  .bgsection::before{content:"";position:absolute;inset:0;background:rgba(10,15,20,var(--scrim,.62))}
+  .bgsection::after{content:"";position:absolute;inset:0;z-index:1;background:rgba(8,10,14,var(--scrim,.72))}
   .bgsection .inner{position:relative;z-index:2}
   .bgsection .eyebrow{color:#fff}
   .bgsection h2{color:#fff}
@@ -142,7 +142,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   .bgsection .whyitem{text-align:center}
   .bgsection .whyitem h3{font-size:16px;font-weight:600;margin-bottom:8px;color:#fff}
   .bgsection .whyitem p{font-size:13.5px;color:rgba(255,255,255,.78)}
-  .bgsection .statement-quote{font-family:var(--font-display);font-size:clamp(22px,3.4vw,32px);line-height:1.32;max-width:26ch;margin-inline:auto;text-align:center;color:#fff;background:rgba(8,10,14,.55);backdrop-filter:blur(2px);padding:40px 32px;border-radius:4px}
+  .bgsection .statement-quote{font-family:var(--font-display);font-size:clamp(22px,3.4vw,32px);line-height:1.32;max-width:26ch;margin-inline:auto;text-align:center;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.4)}
   .bgsection .statement-cite{display:block;margin-top:22px;font-family:var(--font-body);font-size:14px;color:rgba(255,255,255,.75)}
 
   .travelquotes{background:var(--surface);padding-block:56px;border-top:1px solid var(--border)}
@@ -260,8 +260,8 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   </section>
 </div>
 
-<div class="bgsection">
-  <div class="bgimg" style="background-image:url('assets/china-greatwall-1.jpg')"></div>
+<div class="bgsection" style="--scrim:.8">
+  <div class="bgimg" style="background-image:url('assets/china-greatwall-1.jpg');background-position:center 30%"></div>
   <div class="wrap inner">
     <div class="section-head center" style="margin-bottom:28px">
       <span class="eyebrow">Eng ko'p so'raladigan yo'nalish</span>
@@ -277,7 +277,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   </div>
 </div>
 
-<div class="bgsection">
+<div class="bgsection" style="--scrim:.72">
   <div class="bgimg" style="background-image:url('assets/china-greatwall-2.jpg')"></div>
   <div class="wrap inner">
     <div class="section-head center">
@@ -309,7 +309,7 @@ src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"
   </div>
 </div>
 
-<div class="bgsection" style="--scrim:.78">
+<div class="bgsection" style="--scrim:.82">
   <div class="bgimg" style="background-image:url('assets/jahongir-suitcase.jpg');background-position:center 20%"></div>
   <div class="wrap inner">
     <p class="statement-quote">"Sayohat — bu hayotning eng yaxshi investitsiyasi. Men har bir mijozimga xuddi o'z oilamga tashkil qilayotgandek yondashaman."
