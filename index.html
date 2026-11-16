@@ -71,8 +71,11 @@ src="https://www.facebook.com/tr?id=1099773229356773&ev=PageView&noscript=1"
   .section-head h2{font-size:clamp(26px,4vw,40px);color:var(--fg)}
   .center{text-align:center;margin-inline:auto}
 
-  .ambassador{background:var(--surface);text-align:center}
-  .ambassador img{max-width:360px;width:100%;display:block;border-radius:2px;margin-inline:auto;aspect-ratio:9/10;object-fit:cover;object-position:top}
+  .ambassador{background:var(--surface)}
+  .ambgrid{display:grid;grid-template-columns:.85fr 1fr;gap:56px;align-items:center}
+  .ambgrid img{width:100%;display:block;border-radius:2px;aspect-ratio:4/5;object-fit:cover;object-position:top}
+  .ambgrid h2{font-size:clamp(26px,3.6vw,38px)}
+  .ambgrid .sub{margin-top:18px;font-size:16.5px;color:var(--muted);max-width:50ch}
 
   .groupphoto{padding-block:0}
   .groupphoto img{width:100%;display:block;max-height:640px;object-fit:cover}
@@ -154,7 +157,8 @@ src="https://www.facebook.com/tr?id=1099773229356773&ev=PageView&noscript=1"
 
   @media (max-width:760px){
     .navlinks{display:none}
-    .feature,.contact,.videogrid,.whygrid{grid-template-columns:1fr}
+    .feature,.contact,.videogrid,.whygrid,.ambgrid{grid-template-columns:1fr}
+    .ambgrid img{max-width:280px;margin:0 auto}
     .bgsection .feature{grid-template-columns:1fr}
     .bgsection .whygrid{grid-template-columns:1fr 1fr}
     .feature-rev>div:first-child{order:1}
@@ -208,8 +212,22 @@ src="https://www.facebook.com/tr?id=1099773229356773&ev=PageView&noscript=1"
 <div class="ambassador">
   <div class="wrap">
     <section>
-      <img src="assets/jahongir.jpg" alt="Jahongir Xo'jayev">
+      <div class="ambgrid">
+        <img src="assets/jahongir-smile.jpg" alt="Jahongir Xo'jayev">
+        <div>
+          <span class="eyebrow" style="color:var(--accent-dark)">Asoschidan</span>
+          <h2>Men — Jahongir Xo'jayev</h2>
+          <p class="sub">Bu — mening tur kompaniyam. Citrus Travel'ni men shaxsan tashkil qildim va har bir sayohatni o'zim nazorat qilaman — Xitoy turlaridan tortib avtorskiy marshrutlargacha. Sizlarga faqat o'zim ishongan yo'nalishlarni taklif qilaman.</p>
+        </div>
+      </div>
     </section>
+  </div>
+</div>
+
+<div class="bgsection">
+  <div class="bgimg" style="background-image:url('assets/jahongir-beach.jpg')"></div>
+  <div class="wrap inner" style="text-align:center">
+    <p class="statement-quote" style="font-size:clamp(20px,3vw,28px)">"Har bir yo'nalishni avval o'zim sinab ko'raman — shunda sizga ishonch bilan taklif qilaman."</p>
   </div>
 </div>
 
